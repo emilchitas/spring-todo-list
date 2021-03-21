@@ -36,6 +36,10 @@ dependencies {
 
 }
 
+gretty {
+    contextPath = '/'
+}
+
 test {
     useJUnitPlatform()
 }

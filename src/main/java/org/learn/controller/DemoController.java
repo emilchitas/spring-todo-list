@@ -9,7 +9,12 @@ public class DemoController {
 
     @ResponseBody
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return "hello";
+    }
+
+    @GetMapping("welcome")
+    public String welcome() {
+        return "welcome";
     }
 }
