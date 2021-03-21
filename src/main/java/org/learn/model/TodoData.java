@@ -5,33 +5,33 @@ import lombok.NonNull;
 import java.time.LocalDate;
 import java.util.*;
 
-public class ToDoData {
+public class TodoData {
 
     private static int idValue = 1;
-    private final List<ToDoItem> items = new ArrayList<>();
+    private final List<TodoItem> items = new ArrayList<>();
 
-    public ToDoData() {
+    public TodoData() {
         //Add dummy data
-        addItem(new ToDoItem("first","first details", LocalDate.now()));
-        addItem(new ToDoItem("second","second details", LocalDate.now()));
-        addItem(new ToDoItem("third","third details", LocalDate.now()));
+        addItem(new TodoItem("first","first details", LocalDate.now()));
+        addItem(new TodoItem("second","second details", LocalDate.now()));
+        addItem(new TodoItem("third","third details", LocalDate.now()));
     }
 
-    public List<ToDoItem> getItems() {
+    public List<TodoItem> getItems() {
         return Collections.unmodifiableList(items);
     }
 
 
-    public void addItem(@NonNull ToDoItem toAdd) {
+    public void addItem(@NonNull TodoItem toAdd) {
         toAdd.setId(idValue);
         items.add(toAdd);
         idValue++;
     }
 
     public void removeItem(int id) {
-        ListIterator<ToDoItem> itemIterator = items.listIterator();
+        ListIterator<TodoItem> itemIterator = items.listIterator();
         while (itemIterator.hasNext()) {
-            ToDoItem item = itemIterator.next();
+            TodoItem item = itemIterator.next();
             if (item.getId() == id) {
                 itemIterator.remove();
                 break;
@@ -39,8 +39,8 @@ public class ToDoData {
         }
     }
 
-    public ToDoItem getItem(int id) {
-        for (ToDoItem item : items) {
+    public TodoItem getItem(int id) {
+        for (TodoItem item : items) {
             if (item.getId() == id) {
                 return item;
             }
@@ -48,10 +48,10 @@ public class ToDoData {
         return null;
     }
 
-    public void updateItem(@NonNull ToDoItem toUpdate) {
-        ListIterator<ToDoItem> itemIterator = items.listIterator();
+    public void updateItem(@NonNull TodoItem toUpdate) {
+        ListIterator<TodoItem> itemIterator = items.listIterator();
         while (itemIterator.hasNext()) {
-            ToDoItem item = itemIterator.next();
+            TodoItem item = itemIterator.next();
             if (item.equals(toUpdate)) {
                 itemIterator.set(toUpdate);
                 break;
